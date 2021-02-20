@@ -1,0 +1,14 @@
+/* Import the 'Courier Prime' Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Courier+Prime&display=swap');
+
+/* Change all the text in the 'heading' <div> to be the Courier Prime font */
+#heading {
+  font-family: 'Courier Prime', monospace;
+  text-align: center;
+}
+
+/* Center page content */
+.centered {
+  display: flex;
+  justify-content: center;
+}
