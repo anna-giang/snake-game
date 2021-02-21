@@ -17,16 +17,15 @@ let bestScore = tail; // The best score in the session so far, initially startin
 
 // When the window loads, call startGame();
 window.onload = function () {
+  setupGame();
   startGame();
 };
 
 /**
- * Sets the 'canvas' and 'context' variables,
- * adds a 'keydown' event listener to the document
- * and sets an interval to call game() function 
- * at every 1000/15 ms.
+ * Sets the 'canvas' and 'context' variables, and
+ * adds a 'keydown' event listener to the document.
  */
-function startGame() {
+function setupGame() {
   canvas = document.getElementById('game-canvas');
   context = canvas.getContext('2d');
   // Whenever the user presses a key, call keyPush()
@@ -35,6 +34,13 @@ function startGame() {
   // Add the current scores to the innerText of the <p> elements.
   document.getElementById('current-score').innerText = tail;
   document.getElementById('best-score').innerText = bestScore;
+}
+
+/**
+ * Sets an interval to call game() function every framerate
+ * number of seconds.
+ */
+function startGame() {
   gamePlay = setInterval(game, framerate);
 }
 
