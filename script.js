@@ -42,6 +42,7 @@ function setupGame() {
  */
 function startGame() {
   gamePlay = setInterval(game, framerate);
+  setupPauseStartButton(false);
 }
 
 function game() {
@@ -169,4 +170,24 @@ function keyPush(evt) {
  */
 function pauseGame() {
   clearInterval(gamePlay);
+  setupPauseStartButton(true);
+}
+
+/** 
+ * Changes the 'pause-start-button' button into a 
+ * pause button or start button depending on the value
+ * of the pauseState parameter
+ * @param {boolean} paused True or false whether the game 
+ * is currently paused.
+ */
+function setupPauseStartButton(paused) {
+  let button = document.getElementById('pause-start-button');
+  if (paused) {
+    // Make into a start button
+    button.innerText = 'Start';
+    button.onclick = function(){startGame()};
+  } else {
+    button.innerText = 'Pause';
+    button.onclick = function(){pauseGame()};
+  }
 }
