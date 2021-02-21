@@ -1,6 +1,7 @@
 let canvas;
 let context;
 let framerate = 1000/15;
+let gamePlay;
 
 // GAME VARIABLES
 let posX = posY = 10; // Initial position of the snake head.
@@ -34,7 +35,7 @@ function startGame() {
   // Add the current scores to the innerText of the <p> elements.
   document.getElementById('current-score').innerText = tail;
   document.getElementById('best-score').innerText = bestScore;
-  setInterval(game, framerate);
+  gamePlay = setInterval(game, framerate);
 }
 
 function game() {
@@ -154,4 +155,12 @@ function keyPush(evt) {
       movementY = 1;
       break;
   }
+}
+
+/** 
+ * Pauses the gameplay by clearing the setInterval
+ * as held in variable 'gamePlay'.
+ */
+function pauseGame() {
+  clearInterval(gamePlay);
 }
