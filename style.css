@@ -12,3 +12,9 @@
   display: flex;
   justify-content: center;
 }
+
+/* Add styles to score board */
+#score-board {
+  font-family: 'Courier Prime', monospace;
+  padding-left: 20px;
+}
