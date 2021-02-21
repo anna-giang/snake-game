@@ -12,6 +12,7 @@ let appleX = appleY = 15; // Initial position of the apple.
 let movementX = movementY = 0; 
 let trail = []; // The X and Y positions of each block of the snake.
 let tail = 5; // The initial length of the tail.
+let bestScore = tail; // The best score in the session so far, initially starting length of tail
 
 // When the window loads, call startGame();
 window.onload = function () {
@@ -32,11 +33,20 @@ function startGame() {
   // Set up the scoreboard.
   // Add the current scores to the innerText of the <p> elements.
   document.getElementById('current-score').innerText = tail;
-  document.getElementById('best-score').innerText = tail;
+  document.getElementById('best-score').innerText = bestScore;
   setInterval(game, framerate);
 }
 
 function game() {
+  // Update the scoreboard to reflect current game status
+  // The current score is the length of the tail now.
+  document.getElementById('current-score').innerText = tail;
+  // If we have a new best score, update the best score
+  if (tail > bestScore) {
+    bestScore = tail;
+    document.getElementById('best-score').innerText = bestScore;
+  }
+
   // Move the head of the snake in the current direction indicated 
   // by movementX and movementY
   posX += movementX;
