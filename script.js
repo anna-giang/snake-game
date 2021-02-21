@@ -29,6 +29,10 @@ function startGame() {
   context = canvas.getContext('2d');
   // Whenever the user presses a key, call keyPush()
   document.addEventListener("keydown", keyPush);
+  // Set up the scoreboard.
+  // Add the current scores to the innerText of the <p> elements.
+  document.getElementById('current-score').innerText = tail;
+  document.getElementById('best-score').innerText = tail;
   setInterval(game, framerate);
 }
 
